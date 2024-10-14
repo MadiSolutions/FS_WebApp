@@ -1,0 +1,4 @@
+personal con operacion asignada no se le puede asignar otra 
+
+boton actualizar
+boton eliminar en vencimiento personal

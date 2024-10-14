@@ -1,0 +1,188 @@
+<tbody>
+                                <?php
+                                date_default_timezone_set('America/Lima');
+                                while ($row = mysqli_fetch_assoc($res)) :
+                                ?>
+                                    <tr>
+                                        <th style="background-color:   #707b7c   ;color:#ffffff" ><?php echo $row['placa'] ?></th>
+                                        <th style="background-color:   #707b7c   ;color:#ffffff" ><?php echo $row['tipo_vehiculo'] ?></th>
+                                        <?php 
+                                            $new_date=date("Y-m-d",strtotime($row['soat'].$row['venc_soat'])); 
+                                            $old_date = new DateTime();
+                                            $new_date = new DateTime($new_date);
+                                            $diff = $old_date->diff($new_date);
+                                            $diff =$diff->format('%R%a');
+                                            if($diff<0){
+                                        ?>
+                                        <td style="background-color:#a93226;color:#ffffff" ><?php echo (($diff*-1)+1)." Dias Vencido"; ?></td>
+                                        <?php }if($diff>=0 && $diff<=15){?>
+                                        <td style="background-color:#e74c3c;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>15 && $diff<=30){?>
+                                        <td style="background-color:#f1c40f;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>30){?>
+                                        <td style="background-color:#2ecc71;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php } 
+                                        //poliza 
+                                            $new_date=date("Y-m-d",strtotime($row['poliza'].$row['venc_poliza'])); 
+                                            $old_date = new DateTime();
+                                            $new_date = new DateTime($new_date);
+                                            $diff = $old_date->diff($new_date);
+                                            $diff =$diff->format('%R%a');
+                                            if($diff<0){
+                                        ?>
+                                        <td style="background-color:#a93226;color:#ffffff" ><?php echo ($diff*-1)." Dias Vencido"; ?></td>
+                                        <?php }if($diff>=0 && $diff<=15){?>
+                                        <td style="background-color:#e74c3c;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>15 && $diff<=30){?>
+                                        <td style="background-color:#f1c40f;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>30){?>
+                                        <td style="background-color:#2ecc71;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php } 
+                                        //poliza mercancia
+                                        $new_date=date("Y-m-d",strtotime($row['poliza_mercancia'].$row['venc_poliza_mercancia'])); 
+                                        $old_date = new DateTime();
+                                        $new_date = new DateTime($new_date);
+                                        $diff = $old_date->diff($new_date);
+                                        $diff =$diff->format('%R%a');
+                                        if($diff<0){
+                                        ?>
+                                        <td style="background-color:#a93226;color:#ffffff" ><?php echo ($diff*-1)." Dias Vencido"; ?></td>
+                                        <?php }if($diff>=0 && $diff<=15){?>
+                                        <td style="background-color:#e74c3c;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>15 && $diff<=30){?>
+                                        <td style="background-color:#f1c40f;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>30){?>
+                                        <td style="background-color:#2ecc71;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php } 
+                                        //revicion tecnica
+                                        $old_date = new DateTime();
+                                        $new_date = new DateTime($row['venc_rev_tecnica']);
+                                        $diff = $old_date->diff($new_date);
+                                        $diff =$diff->format('%R%a');
+                                        if($diff<0){
+                                        ?>
+                                        <td style="background-color:#a93226;color:#ffffff" ><?php echo ($diff*-1)." Dias Vencido"; ?></td>
+                                        <?php }if($diff>=0 && $diff<=15){?>
+                                        <td style="background-color:#e74c3c;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>15 && $diff<=30){?>
+                                        <td style="background-color:#f1c40f;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>30){?>
+                                        <td style="background-color:#2ecc71;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php } 
+                                        //gps
+                                        $new_date=date("Y-m-d",strtotime($row['gps'].$row['venc_gps'])); 
+                                        $old_date = new DateTime();
+                                        $new_date = new DateTime($new_date);
+                                        $diff = $old_date->diff($new_date);
+                                        $diff =$diff->format('%R%a');
+                                        if($diff<0){
+                                        ?>
+                                        <td style="background-color:#a93226;color:#ffffff" ><?php echo ($diff*-1)." Dias Vencido"; ?></td>
+                                        <?php }if($diff>=0 && $diff<=15){?>
+                                        <td style="background-color:#e74c3c;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>15 && $diff<=30){?>
+                                        <td style="background-color:#f1c40f;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>30){?>
+                                        <td style="background-color:#2ecc71;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php } 
+                                        //tuc
+                                        $old_date = new DateTime();
+                                        $new_date = new DateTime($row['venc_tuc']);
+                                        $diff = $old_date->diff($new_date);
+                                        $diff =$diff->format('%R%a');
+                                        if($diff<0){
+                                        ?>
+                                        <td style="background-color:#a93226;color:#ffffff" ><?php echo ($diff*-1)." Dias Vencido"; ?></td>
+                                        <?php }if($diff>=0 && $diff<=15){?>
+                                        <td style="background-color:#e74c3c;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>15 && $diff<=30){?>
+                                        <td style="background-color:#f1c40f;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>30){?>
+                                        <td style="background-color:#2ecc71;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php } 
+                                        //cert matpel
+                                        $old_date = new DateTime();
+                                        $new_date = new DateTime($row['venc_cert_matpel']);
+                                        $diff = $old_date->diff($new_date);
+                                        $diff =$diff->format('%R%a');
+                                        if($diff<0){
+                                        ?>
+                                        <td style="background-color:#a93226;color:#ffffff" ><?php echo ($diff*-1)." Dias Vencido"; ?></td>
+                                        <?php }if($diff>=0 && $diff<=15){?>
+                                        <td style="background-color:#e74c3c;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>15 && $diff<=30){?>
+                                        <td style="background-color:#f1c40f;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>30){?>
+                                        <td style="background-color:#2ecc71;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php } 
+                                        //homologacion vehicular
+                                        $new_date=date("Y-m-d",strtotime($row['homo_vehicular'].$row['venc_homo_vehicular'])); 
+                                        $old_date = new DateTime();
+                                        $new_date = new DateTime($new_date);
+                                        $diff = $old_date->diff($new_date);
+                                        $diff =$diff->format('%R%a');
+                                        if($diff<0){
+                                        ?>
+                                        <td style="background-color:#a93226;color:#ffffff" ><?php echo ($diff*-1)." Dias Vencido"; ?></td>
+                                        <?php }if($diff>=0 && $diff<=15){?>
+                                        <td style="background-color:#e74c3c;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>15 && $diff<=30){?>
+                                        <td style="background-color:#f1c40f;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>30){?>
+                                        <td style="background-color:#2ecc71;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php } 
+                                        //cert operatividad
+                                        $new_date=date("Y-m-d",strtotime($row['cert_operatividad'].$row['ven_cert_operatividad'])); 
+                                        $old_date = new DateTime();
+                                        $new_date = new DateTime($new_date);
+                                        $diff = $old_date->diff($new_date);
+                                        $diff =$diff->format('%R%a');
+                                        if($diff<0){
+                                        ?>
+                                        <td style="background-color:#a93226;color:#ffffff" ><?php echo ($diff*-1)." Dias Vencido"; ?></td>
+                                        <?php }if($diff>=0 && $diff<=5){?>
+                                        <td style="background-color:#e74c3c;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>5 && $diff<=15){?>
+                                        <td style="background-color:#f1c40f;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>15){?>
+                                        <td style="background-color:#2ecc71;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php } 
+                                        //extintor
+                                        $new_date=date("Y-m-d",strtotime($row['extintor'].$row['venc_extintor'])); 
+                                        $old_date = new DateTime();
+                                        $new_date = new DateTime($new_date);
+                                        $diff = $old_date->diff($new_date);
+                                        $diff =$diff->format('%R%a');
+                                        if($diff<0){
+                                        ?>
+                                        <td style="background-color:#a93226;color:#ffffff" ><?php echo ($diff*-1)." Dias Vencido"; ?></td>
+                                        <?php }if($diff>=0 && $diff<=5){?>
+                                        <td style="background-color:#e74c3c;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>5 && $diff<=15){?>
+                                        <td style="background-color:#f1c40f;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>15){?>
+                                        <td style="background-color:#2ecc71;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php } 
+                                        //cert tacos
+                                        $new_date=date("Y-m-d",strtotime($row['cert_tacos'].$row['venc_cert_tacos'])); 
+                                        $old_date = new DateTime();
+                                        $new_date = new DateTime($new_date);
+                                        $diff = $old_date->diff($new_date);
+                                        $diff =$diff->format('%R%a');
+                                        if($diff<0){
+                                        ?>
+                                        <td style="background-color:#a93226;color:#ffffff" ><?php echo ($diff*-1)." Dias Vencido"; ?></td>
+                                        <?php }if($diff>=0 && $diff<=5){?>
+                                        <td style="background-color:#e74c3c;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>5 && $diff<=15){?>
+                                        <td style="background-color:#f1c40f;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php }if($diff>15){?>
+                                        <td style="background-color:#2ecc71;color:#ffffff"><?php echo ($diff*1)." Dias Para Vencer"; ?></td>
+                                        <?php } 
+                                        ?>
+                                        <th style="background-color: #d4e6f1 ;color:#d6eaf8 ">
+                                            <a data-toggle="modal" data-target="#EditModal" href="javascript:void(0);" onclick="document.getElementById('update_cod_vehiculo').value ='<?= $row['cod_vehiculo']?>';document.getElementById('update_soat').value ='<?= $row['soat']?>';document.getElementById('update_poliza').value ='<?= $row['poliza']?>';document.getElementById('update_poliza_mercancia').value ='<?= $row['poliza_mercancia']?>';document.getElementById('update_rev_tecnica').value ='<?= $row['rev_tecnica']?>';document.getElementById('update_venc_rev_tecnica').value ='<?= $row['venc_rev_tecnica']?>';document.getElementById('update_gps').value ='<?= $row['gps']?>';document.getElementById('update_tuc').value ='<?= $row['tuc']?>';document.getElementById('update_venc_tuc').value ='<?= $row['venc_tuc']?>';document.getElementById('update_cert_matpel').value ='<?= $row['cert_matpel']?>';document.getElementById('update_venc_cert_matpel').value ='<?= $row['venc_cert_matpel']?>';document.getElementById('update_homo_vehicular').value ='<?= $row['homo_vehicular']?>';document.getElementById('update_cert_operatividad').value ='<?= $row['cert_operatividad']?>';document.getElementById('update_extintor').value ='<?= $row['extintor']?>';document.getElementById('update_cert_tacos').value ='<?= $row['cert_tacos']?>';" title="Actualizar Documentos"> Actualizar </a>
+                                        </th>
+                                    </tr>
+                                <?php endwhile; ?>
+                            </tbody>
